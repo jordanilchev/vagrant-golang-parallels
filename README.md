@@ -7,9 +7,8 @@ that will setup and prepare all the required pre-requisits.
 ## Requirements
 In order to use this repository you need the following:
 
-- [VirtualBox](https://www.virtualbox.org/)
+- [Parallels](https://www.parallels.com/)
 - [Vagrant](http://www.vagrantup.com/)
-- [Puppet](http://docs.puppetlabs.com/guides/installation.html)
 
 ## Using vagrant-golang
 This repo was developed to be copied and re-used as needed in other projects. It is only meant to make per project golang
@@ -21,21 +20,24 @@ cd /path/to/repo
 vagrant up
 vagrant ssh
 # ...
-cd /vagrant
 go version
 go install hello
 hello
-# hello, world
+# hello, Vagrant
 ```
 
 ## Choosing golang version
 This repo is hardcoded to use 1.3.3 although this can easily be changed after cloning. If you want to use another version simply
-change the `$version` parameter in `manifests/init.pp`. The version string is taken from the
-[golang downloads list](http://golang.org/dl/). Once changed you can either call `vagrant up` if you
-haven't already setup the vagrant box or `vagrant provision` if the machine is already up.
+change the `$version` parameter in `manifests/default.pp`. The version string is taken from the
+[golang downloads list](http://golang.org/dl/).
+
+Once changed you can either call `vagrant up` if you haven't already setup the vagrant box
+or `vagrant provision` if the machine is already up.
 
 ### Contributing
 Any contributions are welcome. Please just fork the repo and submit a pull request when complete.
+
+[This is also a fork from https://github.com/dcoxall/vagrant-golang](https://github.com/dcoxall/vagrant-golang)
 
 ### License
 The MIT License (MIT)

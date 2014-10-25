@@ -1,12 +1,11 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
 
-Vagrant::Config.run do |config|
-  config.vm.box = "debian-607-x64-vbox4210"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-607-x64-vbox4210.box"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "parallels/ubuntu-14.04"
+  config.vm.provision :shell, :path => "./puppet-bootstrap/bootstrap.sh"
+
   config.vm.provision :puppet do |puppet|
-    puppet.module_path      = "modules"
-    puppet.manifests_path  = "manifests"
-    puppet.manifest_file      = "init.pp"
+    puppet.module_path      = "puppet-modules"
+    puppet.manifests_path  = "puppet-manifests"
   end
 end
